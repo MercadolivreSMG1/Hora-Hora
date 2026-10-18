@@ -596,6 +596,8 @@ tr.rPlan td{background:#fff9db!important;color:#8a7000}
 .print-prev{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#f4f6fb;aspect-ratio:1600/942;display:grid;place-items:center}
 .print-prev img{width:100%;height:100%;object-fit:contain;display:block}
 .print-prev img:not([src]){display:none}
+.btn-danger-glass{background:rgba(242,61,79,.16);color:#ffb3bb;border:1px solid rgba(242,61,79,.45)}
+.btn-danger-glass:hover{background:rgba(242,61,79,.3);color:#fff}
 </style>
 </head>
 <body>
@@ -610,6 +612,7 @@ tr.rPlan td{background:#fff9db!important;color:#8a7000}
       <div class="date-wrap" title="Data dos dados exibidos">📅 <input type="date" id="globalDate" onchange="onDateChange(this.value)"></div>
       <a class="btn btn-yellow" id="btn-form" href="#" target="_blank" rel="noopener" title="Abrir formulário de lançamento (celular)">＋ <span class="t">Lançar</span></a>
       <button class="btn btn-glass btn-icon" onclick="syncNow(true)" title="Sincronizar com a planilha">🔄</button>
+      <button class="btn btn-danger-glass" id="btn-clear" onclick="clearShift(activeShift)" title="Zerar os lançamentos do turno aberto (para todos)">🧹 <span class="t">Limpar turno</span></button>
       <button class="btn btn-yellow" id="btn-print" onclick="takePrint()" title="Gera a print enquadrada da tela e copia para colar no grupo">📸 <span class="t">Print</span></button>
       <button class="btn btn-glass btn-icon" onclick="openShare()" title="Compartilhar (QR Code, WhatsApp, link)">📤</button>
       <div class="sync" id="sync"><span class="dot"></span><span id="sync-txt">Conectando…</span></div>
@@ -1228,6 +1231,7 @@ function updateTabs(){
 }
 function switchTab(sh, silent){
   activeShift = sh; lsSet('rha-tab', sh);
+  const bc = document.getElementById('btn-clear'); if (bc) { const d = sh === 'DIA'; bc.querySelector('.t').textContent = d ? 'Novo dia' : 'Limpar turno ' + sh; bc.onclick = d ? novoDia : () => clearShift(activeShift); bc.title = d ? 'Zerar todos os turnos e arquivar o dia no HISTORICO' : 'Zerar os lançamentos do turno ' + sh + ' (para todos)'; }
   document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === sh));
   document.querySelectorAll('.pane').forEach(p => p.classList.toggle('active', p.id === 'pane-' + sh));
   if (sh === 'DIA') renderDay(); else requestAnimationFrame(() => ensureChart(sh));
@@ -1615,7 +1619,7 @@ function updateHourChart(sh, c, first, key){
   const {T, ih, sw, L} = host._geo, n = c.n, q = sel => host.querySelector(sel);
   const etq = key === 'hour';
   const real = etq ? c.allHr : c.sortHr, plan = etq ? c.planHr : c.sortPlanHr, cum = etq ? c.cumReal : c.cumSort, cumP = etq ? c.cumPlan : c.cumSortPlan, done = etq ? c.hasData : c.sortDone;
-  const yMax = niceMax(Math.max(1, ...real, ...plan)*1.18), yMaxR = niceMax(Math.max(1, cum[n-1] || 0, cumP[n-1] || 0)*1.1);
+  const yMax = niceMax(Math.max(1000, Math.max(...real, ...plan)*1.18)), yMaxR = niceMax(Math.max(1000, Math.max(cum[n-1] || 0, cumP[n-1] || 0)*1.1));
   const Y = v => T+ih-ih*Math.min(v, yMax)/yMax, YR = v => T+ih-ih*Math.min(v, yMaxR)/yMaxR;
   const s = S[sh];
   const isFirst = !!(first || host._first);
