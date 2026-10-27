@@ -24,7 +24,7 @@
   --shadow:0 1px 2px rgba(23,27,58,.05),0 6px 20px rgba(23,27,58,.07); --shadow-2:0 14px 34px rgba(23,27,58,.16);
   --panel:#1d2360; --panel-2:#272e74; --panel-3:#333b8a; --panel-line:rgba(255,255,255,.1); --panel-text:#eef0ff; --panel-text-2:rgba(238,240,255,.62);
   --r:12px; --r-sm:8px; --ease:cubic-bezier(.2,.7,.2,1);
-  --W:1600px; --H:1000px;
+  --W:1600px; --H:1050px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--bg)}
@@ -549,7 +549,7 @@ tr.rPlan td{background:#fff9db!important;color:#8a7000}
 .ins div div{display:block!important;padding:0!important;background:none!important;border:none!important;animation:none!important}
 
 /* ═══ Layout empilhado: Etiquetagem em cima, Sorting embaixo, HC no rodapé ═══ */
-.board.stack{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);grid-template-rows:92px minmax(0,1fr) 204px 78px;grid-template-areas:"k k" "t c" "s z" "h h"}
+.board.stack{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);grid-template-rows:92px minmax(0,1fr) 252px 78px;grid-template-areas:"k k" "t c" "s z" "h h"}
 .board.stack .kpis{grid-area:k}
 .board.stack .tblcard{grid-area:t}
 .board.stack .chartcard{grid-area:c;overflow:hidden}
@@ -561,7 +561,7 @@ tr.rPlan td{background:#fff9db!important;color:#8a7000}
 .board.stack .tblcard td,.board.stack .sortcard td{white-space:nowrap}
 .board.stack .legend{font-size:10px}
 .board.stack .sortcard .card-h{margin-bottom:6px}
-.board.stack .sort-body{grid-template-columns:300px minmax(0,1fr);gap:14px;min-height:0}
+.board.stack .sort-body{grid-template-columns:262px minmax(0,1fr);gap:14px;min-height:0}
 .board.stack .sortcard th{padding:5px 3px}
 .board.stack .sort-side{padding:8px 12px}
 .board.stack .sort-side .donut-row{flex-direction:row;gap:14px}
@@ -593,11 +593,85 @@ tr.rPlan td{background:#fff9db!important;color:#8a7000}
 .capturing *,.capturing *::before,.capturing *::after{animation:none!important;transition:none!important}
 .capturing .hdr-right .btn,.capturing .hdr-right .sync,.capturing .hdr-right .menu-wrap,.capturing .tgl{display:none!important}
 .print-tag{flex-shrink:0;margin-left:8px;background:#1f2558;color:#ffe600;font-weight:700;font-size:12px;padding:6px 12px;border-radius:999px;white-space:nowrap}
-.print-prev{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#f4f6fb;aspect-ratio:1600/942;display:grid;place-items:center}
+.print-prev{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#f4f6fb;aspect-ratio:1600/992;display:grid;place-items:center}
 .print-prev img{width:100%;height:100%;object-fit:contain;display:block}
 .print-prev img:not([src]){display:none}
 .btn-danger-glass{background:rgba(242,61,79,.16);color:#ffb3bb;border:1px solid rgba(242,61,79,.45)}
 .btn-danger-glass:hover{background:rgba(242,61,79,.3);color:#fff}
+tr.rDiv td{background:#f7f5ff!important}
+tr.rDiv td.left{font-weight:600}
+tr.rDiv td small{display:block;font-size:9px;font-weight:600;opacity:.8;line-height:1;margin-top:-1px}
+tr.rDiv td{white-space:nowrap;line-height:1.1}
+.board.stack .sortcard th,.board.stack .sortcard td{padding-left:3px;padding-right:3px}
+
+/* ═════════ REFINO v5 — acabamento leve e consistente ═════════ */
+:root{
+  --bg:#f3f5fa;--card:#fff;--card-2:#f6f7fb;--card-3:#fafbfe;
+  --text:#1a2038;--text-2:#68718a;--text-3:#929ab0;
+  --line:#e4e8f1;--line-2:#edf0f6;
+  --shadow:0 2px 8px rgba(25,35,75,.045),0 12px 28px rgba(25,35,75,.045);
+  --shadow-2:0 8px 24px rgba(25,35,75,.12);
+}
+html,body{background-color:var(--bg)}
+body{background:radial-gradient(900px 420px at 4% -12%,rgba(255,230,0,.12),transparent 66%),radial-gradient(900px 460px at 100% 0%,rgba(76,119,231,.09),transparent 62%),var(--bg)}
+.hdr{background:linear-gradient(108deg,#171d49 0%,#20285f 58%,#2b3776 100%);border-bottom:1px solid rgba(255,255,255,.08)}
+.hdr::after{height:2px;background:linear-gradient(90deg,#ffe600 0%,#ffe600 16%,rgba(255,230,0,.35) 48%,transparent 74%);animation:none}
+.logo{animation:none;box-shadow:0 3px 10px rgba(255,230,0,.2)}
+.tabs{background:rgba(7,12,43,.22);border-color:rgba(255,255,255,.08);padding:3px}
+.tab{height:31px}
+.tab.active{background:linear-gradient(135deg,#fff07a,#ffe600);box-shadow:0 2px 8px rgba(255,230,0,.22);animation:none}
+.tab:focus-visible,.btn:focus-visible,.tgl:focus-visible,.menu button:focus-visible{outline:2px solid #92b8ff;outline-offset:2px}
+.date-wrap{border-radius:10px;background:rgba(255,255,255,.08)}
+.btn{border-radius:10px;transition:transform .16s var(--ease),box-shadow .16s,background .16s,filter .16s}
+.btn-yellow{box-shadow:0 2px 8px rgba(255,214,10,.18)}
+.btn-glass{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12)}
+.btn-glass:hover{background:rgba(255,255,255,.14);box-shadow:none}
+.btn-danger-glass{background:rgba(242,61,79,.1);border-color:rgba(255,155,165,.25)}
+.sync{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.1)}
+.cfgbar{gap:10px}
+.slicer{background:rgba(255,255,255,.94);border-color:#e6eaf2;border-radius:12px;transition:border-color .18s,box-shadow .18s,transform .18s var(--ease)}
+.slicer:hover{border-color:#d4dbea;box-shadow:0 4px 12px rgba(25,35,75,.06)}
+.slicer:focus-within{border-color:#7da8ff;box-shadow:0 0 0 3px rgba(52,131,250,.12)}
+.slicer.auto{background:#eef4ff;border-color:#dfe9ff}
+.card{border:1px solid rgba(222,227,238,.88);border-radius:16px;box-shadow:var(--shadow);padding:11px 15px;transition:box-shadow .2s,transform .2s var(--ease),border-color .2s}
+.board .card:hover,.below .card:hover{border-color:#d8deeb;box-shadow:var(--shadow-2);transform:translateY(-1px)}
+.card-h{margin-bottom:8px}
+.card-t{color:#202743;font-size:13.5px;letter-spacing:0}
+.card-t .ic{width:27px;height:27px;border-radius:9px;background:#fff5c2;box-shadow:inset 0 0 0 1px rgba(235,195,0,.13);font-size:13px}
+.card-s{color:#7c849b;font-weight:500}
+.kpi{border-radius:16px;box-shadow:0 8px 20px -12px var(--sh),0 2px 5px rgba(20,28,65,.06)}
+.kpi:hover{transform:translateY(-1px);box-shadow:0 12px 24px -12px var(--sh),0 4px 10px rgba(20,28,65,.09)}
+.kpi .sheen{display:none}
+.kpi .k-ic{border-radius:13px}
+.kpi .k-l{font-size:11.5px;letter-spacing:.1px}
+.kpi .k-v{font-size:28px}
+.panel{border-radius:18px;background:linear-gradient(160deg,#1b2250 0%,#141a3d 58%,#111633 100%)!important;box-shadow:0 16px 36px -18px rgba(16,20,47,.58),inset 0 1px 0 rgba(255,255,255,.06)}
+.pt{padding-bottom:7px}
+.pt::after{width:28px;height:2px;border-radius:99px}
+.panel .ins>div{border:1px solid rgba(255,255,255,.045);border-radius:10px;padding:7px 9px}
+.chip{border-radius:999px}
+.tbl-wrap{border-color:#e8ecf3;border-radius:10px}
+th{background:#242d68}
+th.tot{background:#1a204e}
+tbody tr:hover td{background:#f0f5ff}
+td{transition:background-color .16s}
+.sort-side{border-color:#e9edf4;border-radius:14px;background:linear-gradient(180deg,#f8f9fc,#fff)}
+.hccard .hcb{border-radius:11px}
+.menu{border-radius:13px;padding:7px;box-shadow:0 16px 40px rgba(20,28,65,.18)}
+.menu button{border-radius:9px}
+.modal{border:1px solid rgba(226,231,241,.9);border-radius:20px;box-shadow:0 24px 70px rgba(12,18,48,.28)}
+.modal .x{border-radius:10px}
+.pform input,.pform select,.pform textarea{border-color:#e2e7f0;border-radius:10px}
+.print-prev{border-color:#e4e8f1;border-radius:14px}
+@media (max-width:700px){
+  body.mobile .hdr{padding:10px 12px}
+  body.mobile .board{gap:12px;padding-left:12px;padding-right:12px}
+  body.mobile .cfgbar{gap:8px}
+  body.mobile .kpi{border-radius:14px}
+}
+@media (prefers-reduced-motion:reduce){
+  .hdr::after,.logo,.kpi .sheen{animation:none!important}
+}
 </style>
 </head>
 <body>
@@ -611,7 +685,7 @@ tr.rPlan td{background:#fff9db!important;color:#8a7000}
     <div class="hdr-right">
       <div class="date-wrap" title="Data dos dados exibidos">📅 <input type="date" id="globalDate" onchange="onDateChange(this.value)"></div>
       <a class="btn btn-yellow" id="btn-form" href="#" target="_blank" rel="noopener" title="Abrir formulário de lançamento (celular)">＋ <span class="t">Lançar</span></a>
-      <button class="btn btn-glass btn-icon" onclick="syncNow(true)" title="Sincronizar com a planilha">🔄</button>
+      <button class="btn btn-glass btn-icon" onclick="syncNow(true)" title="Sincronizar com o banco">🔄</button>
       <button class="btn btn-danger-glass" id="btn-clear" onclick="clearShift(activeShift)" title="Zerar os lançamentos do turno aberto (para todos)">🧹 <span class="t">Limpar turno</span></button>
       <button class="btn btn-yellow" id="btn-print" onclick="takePrint()" title="Gera a print enquadrada da tela e copia para colar no grupo">📸 <span class="t">Print</span></button>
       <button class="btn btn-glass btn-icon" onclick="openShare()" title="Compartilhar (QR Code, WhatsApp, link)">📤</button>
@@ -697,7 +771,7 @@ tr.rPlan td{background:#fff9db!important;color:#8a7000}
 <script>
 // ═══════════════════════════════════════════════════════════════════
 //  CORE — cálculo puro (sem DOM). Mesmo schema de dados da v3,
-//  portanto a planilha (Apps Script) e o formulário continuam funcionando.
+//  mantendo compatibilidade com os dados do formulário.
 // ═══════════════════════════════════════════════════════════════════
 const SHIFTS = ['AM','PM','SD','CHP'];
 const N_GM = 5, N_VOL = 4, N_HRS = 7;
@@ -741,7 +815,7 @@ function mkShift(sh){
     ocoTipo : Array(N_HRS).fill(''), ocoDesc: Array(N_HRS).fill(''), ocoAcao: Array(N_HRS).fill(''),
   };
 }
-// garante que todos os campos/arrays existam (dados vindos da planilha podem estar incompletos)
+// garante que todos os campos/arrays existam (dados recebidos podem estar incompletos)
 function normShift(s, sh){
   const d = mkShift(sh);
   if (!s || typeof s !== 'object') s = {};
@@ -929,6 +1003,21 @@ function calcDay(S, ctx){
 }
 
 // ── Leitura rápida (insights em texto) ─────────────────────────────
+// ── Divergência: pacotes no carrinho (sorting) × etiquetados nas estações ──
+const DIV_OK = 5, DIV_WARN = 15;   // % de tolerância
+const divCls = p => p == null ? '' : Math.abs(p) <= DIV_OK ? 'good' : Math.abs(p) <= DIV_WARN ? 'warn' : 'bad';
+function divergence(c){
+  const hr = c.slots.map((x, k) => {
+    if (x.isBreak || !c.sortDone[k] || !c.hasData[k]) return null;
+    const d = c.sortHr[k] - c.allHr[k];
+    return { d, pct: c.allHr[k] > 0 ? d / c.allHr[k] * 100 : null };
+  });
+  let sS = 0, sE = 0, n = 0;
+  hr.forEach((h, k) => { if (h) { sS += c.sortHr[k]; sE += c.allHr[k]; n++; } });
+  const d = sS - sE;
+  return { hr, n, sumSort: sS, sumEtq: sE, d, pct: sE > 0 ? d / sE * 100 : null,
+    worstK: hr.reduce((b, h, k) => h && h.pct != null && (b < 0 || Math.abs(h.pct) > Math.abs(hr[b].pct)) ? k : b, -1) };
+}
 function insights(c){
   const out = [];
   const add = (tone, icon, text) => out.push({tone, icon, text});
@@ -950,6 +1039,7 @@ function insights(c){
   }
   if (c.sortPlanTotal>0 && c.sortTotal>0) add(c.sortPctToDate>=100?'good':c.sortPctToDate>=TH.warn?'warn':'bad','🗂','Sorting: '+fmtN(c.sortTotal)+' pcts ('+fmtPct(c.sortPct)+' da meta; '+fmtPct(c.sortPctToDate)+' do planejado até agora).');
   if (c.hcBase>0) add(absCls(c.pctHC)==='good'?'good':absCls(c.pctHC)==='warn'?'warn':'bad','👥','HC presente '+fmtN(c.hcTotal)+(c.hcNec>0?' de '+fmtN(c.hcNec)+' necessários ('+fmtSig(c.hcGap)+')':'')+' · absenteísmo '+fmtPct(c.pctHC)+(c.prod!=null?' · produtividade '+fmtN1(c.prod)+' pcts/HC/h'+(c.prodPlan?' (meta '+fmtN1(c.prodPlan)+')':''):'')+'.');
+  { const dv = divergence(c); if (dv.n && dv.pct != null) add(divCls(dv.pct) === 'good' ? 'good' : divCls(dv.pct) === 'warn' ? 'warn' : 'bad', '⚖️', 'Divergência sorting × estações: '+fmtSig(dv.d)+' pcts ('+(dv.pct>0?'+':'')+fmtPct(dv.pct)+') nas '+dv.n+'h com os dois lançamentos — '+(dv.d < 0 ? 'etiquetado e não alocado no carrinho' : 'mais no carrinho do que etiquetado nas estações')+'.'); }
   if (c.ocos.length) add('warn','⚠️', c.ocos.length+' ocorrência'+(c.ocos.length>1?'s':'')+': '+Object.entries(c.ocoByType).map(([t,n])=>esc(t)+(n>1?' ×'+n:'')).join(', ')+'.');
   return out;
 }
@@ -972,6 +1062,7 @@ function actionPlan(c){
       if (b > 0 && (b - w)/b >= .25) add('média','Processo','Supervisor','Investigar a queda na hora '+c.slots[c.worstK].time+' ('+fmtN(w)+' vs. '+fmtN(b)+' na melhor hora)','Variação acima de 25% entre horas costuma indicar parada, troca de turno ou falta de insumo.');
     }
   }
+  { const dv = divergence(c); if (dv.n && dv.pct != null && Math.abs(dv.pct) > DIV_WARN) add(Math.abs(dv.pct) > 25 ? 'alta' : 'média','Divergência','Líder do sorting','Conferir divergência sorting × estações: '+fmtSig(dv.d)+' pcts ('+(dv.pct>0?'+':'')+fmtPct(dv.pct)+')', (dv.d < 0 ? 'Há '+fmtN(-dv.d)+' pcts etiquetados que não aparecem no carrinho — verificar fila entre etiquetagem e sorting, lançamento atrasado ou contagem.' : 'O carrinho tem '+fmtN(dv.d)+' pcts a mais que o etiquetado — conferir lançamento das estações ou contagem do sorting.') + (dv.worstK >= 0 ? ' Maior diferença em '+c.slots[dv.worstK].time+'.' : '')); }
   if (c.sortPlanTotal > 0 && c.sortTotal > 0 && c.sortPctToDate < TH.warn + 10) add(c.sortPctToDate < TH.warn ? 'alta' : 'média','Sorting','Líder do sorting','Reforçar o sorting — '+fmtPct(c.sortPctToDate)+' do planejado até agora','Faltam '+fmtN(Math.max(0, c.sortPlanTotal - c.sortTotal))+' pcts para a meta de '+fmtN(c.sortPlanTotal)+'.');
   if (c.hcBase > 0) {
     if (c.pctHC > TH.absWarn) add('alta','Pessoas','RH / Supervisor','Tratar absenteísmo de '+fmtPct(c.pctHC)+' ('+c.hcAbsent+' ausências)','Acima de '+TH.absWarn+'%: acionar diaristas/banco de reservas e registrar justificativas.');
@@ -995,15 +1086,32 @@ if (typeof module !== 'undefined') module.exports = { SHIFTS, N_GM, N_VOL, N_HRS
 </script>
 <script>
 // ═══════════════════════════════════════════════════════════════════
-//  SINCRONIZAÇÃO — Google Sheets via Apps Script (mesmo protocolo da v3)
+//  SINCRONIZAÇÃO — Firebase Realtime Database
 // ═══════════════════════════════════════════════════════════════════
-const API_URL  = 'https://script.google.com/macros/s/AKfycbz2dW_3B3poc_E9ezfwQPcSAvMv64hjF2SF3q9I9evmmVxNFzxVnmpNQUKaKAWbhjA-/exec';
+const FIREBASE_CONFIG = {
+  apiKey: 'AIzaSyADtOOYAGLeKhrS3An0FklYiDqrKQrsnz0',
+  authDomain: 'hora-hora-db960.firebaseapp.com',
+  databaseURL: 'https://hora-hora-db960-default-rtdb.firebaseio.com',
+  projectId: 'hora-hora-db960',
+  storageBucket: 'hora-hora-db960.firebasestorage.app',
+  messagingSenderId: '18402039483',
+  appId: '1:18402039483:web:8e31b52973bc97ab49fb9e'
+};
+const DB_ROOT = 'horaHora';
+const FIREBASE_SDK = 'https://www.gstatic.com/firebasejs/13.1.0';
+const firebaseReady = Promise.all([
+  import(`${FIREBASE_SDK}/firebase-app.js`),
+  import(`${FIREBASE_SDK}/firebase-database.js`)
+]).then(([appSdk, dbSdk]) => {
+  const app = appSdk.initializeApp(FIREBASE_CONFIG);
+  return { db: dbSdk.getDatabase(app), ...dbSdk };
+});
 const FORM_URL = 'https://ramongomes-dotcom.github.io/smg1-contagem/formulario-lancamento.html';
-const POLL_MS  = 4000;
 const DEMO = window.__DEMO__ === true || /[?&]demo=1/.test(location.search);
 
 let VERSION = 0, SERVER_DATE = '';
 const _queue = []; let _sending = false, _polling = false, _dirty = false, _loaded = false;
+let _dayUnsub = null, _subscribedDate = '';
 const lsGet = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
 const lsSet = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };
 
@@ -1020,16 +1128,95 @@ function setStatus(kind, extra){
   const map = { ok:['Sincronizado · ' + t], send:['Enviando…'], off:['Offline — tentando…'], demo:['Demonstração'] };
   el.className = 'sync ' + kind; tx.textContent = extra || (map[kind] || map.off)[0];
 }
+function dbDate(value){ return /^\d{4}-\d{2}-\d{2}$/.test(String(value || '')) ? String(value) : todayLocal(); }
+function dbDayPath(date){ return `${DB_ROOT}/days/${dbDate(date)}`; }
+function emptyDayData(){ const data = {}; SHIFTS.forEach(sh => data[sh] = mkShift(sh)); return data; }
+function emptyDayRecord(){ return {version:0, data:emptyDayData()}; }
+async function activeDbDate(){
+  const {db,ref,get,runTransaction} = await firebaseReady;
+  const dateRef = ref(db, `${DB_ROOT}/activeDate`);
+  let snap = await get(dateRef);
+  if (!snap.exists()) {
+    await runTransaction(dateRef, current => current || todayLocal());
+    snap = await get(dateRef);
+  }
+  return dbDate(snap.val());
+}
+async function readDbDay(date){
+  const {db,ref,get,runTransaction} = await firebaseReady;
+  const dayRef = ref(db, dbDayPath(date));
+  let snap = await get(dayRef);
+  if (!snap.exists()) {
+    const created = await runTransaction(dayRef, current => current || emptyDayRecord());
+    snap = created.snapshot;
+  }
+  const record = snap.val() || emptyDayRecord();
+  return {ok:true, version:Number(record.version) || 0, date:dbDate(date), data:record.data || emptyDayData()};
+}
 async function apiGet(){
-  const r = await fetch(API_URL + '?v=' + VERSION + '&t=' + Date.now(), {cache:'no-store'});
-  const j = await r.json(); if (j.ok === false) throw new Error(j.error || 'erro'); return j;
+  const date = await activeDbDate();
+  return readDbDay(date);
 }
 async function apiPost(body){
-  const r = await fetch(API_URL, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body:JSON.stringify(body)});
-  const j = await r.json(); if (j.ok === false) throw new Error(j.error || 'erro'); return j;
+  const {db,ref,get,set,runTransaction} = await firebaseReady;
+  const activeRef = ref(db, `${DB_ROOT}/activeDate`);
+  const activeDate = await activeDbDate();
+
+  if (body.op === 'setDate') {
+    const date = dbDate(body.date);
+    await readDbDay(date);
+    await set(activeRef, date);
+    return readDbDay(date);
+  }
+
+  if (body.op === 'reset') {
+    if (body.ifDate && activeDate !== body.ifDate) return apiGet();
+    const date = dbDate(body.date || todayLocal());
+    const dayRef = ref(db, dbDayPath(date));
+    await runTransaction(dayRef, current => ({
+      version:(Number(current && current.version) || 0) + 1,
+      data:emptyDayData()
+    }));
+    await set(activeRef, date);
+    return readDbDay(date);
+  }
+
+  const date = dbDate(body.date || activeDate);
+  const dayRef = ref(db, dbDayPath(date));
+  await runTransaction(dayRef, current => {
+    const record = current ? JSON.parse(JSON.stringify(current)) : emptyDayRecord();
+    const data = record.data && typeof record.data === 'object' ? record.data : emptyDayData();
+
+    if (body.op === 'set' && SHIFTS.includes(body.shift) && Array.isArray(body.path) && body.path.length) {
+      if (!data[body.shift]) data[body.shift] = body.fallback || mkShift(body.shift);
+      let target = data[body.shift];
+      for (let i = 0; i < body.path.length; i++) {
+        const key = body.path[i];
+        if (i === body.path.length - 1) target[key] = body.value;
+        else {
+          const nextKey = body.path[i + 1];
+          if (target[key] == null || typeof target[key] !== 'object') target[key] = typeof nextKey === 'number' ? [] : {};
+          target = target[key];
+        }
+      }
+      normShift(data[body.shift], body.shift);
+    } else if (body.op === 'clearShift' && SHIFTS.includes(body.shift)) {
+      data[body.shift] = mkShift(body.shift);
+    } else return;
+
+    record.version = (Number(record.version) || 0) + 1;
+    record.data = data;
+    return record;
+  });
+  return readDbDay(date);
 }
 function allHrs(){ const o = {}; SHIFTS.forEach(sh => o[sh] = getHours(S[sh], sh)); return o; }
-function enqueue(body){ if (DEMO) return; body.hrs = allHrs(); _queue.push(body); flushQueue(); }
+function enqueue(body){
+  if (DEMO) return;
+  body.hrs = allHrs();
+  if (!body.date && body.op !== 'setDate') body.date = SERVER_DATE || dbDate(document.getElementById('globalDate').value);
+  _queue.push(body); flushQueue();
+}
 async function flushQueue(){
   if (_sending || !_queue.length) return;
   _sending = true; setStatus('send');
@@ -1046,13 +1233,38 @@ async function poll(force){
   if (DEMO || _polling || _sending || _queue.length) return;
   if (document.hidden && !force) return;
   _polling = true;
-  try { const r = await apiGet(); setStatus('ok'); if (!r.same && !_sending && !_queue.length) applyRemote(r, false); }
+  try { const r = await apiGet(); setStatus('ok'); if (!_sending && !_queue.length) applyRemote(r, false); }
   catch (e) { console.warn('Leitura falhou:', e); setStatus('off'); }
   _polling = false;
 }
-function syncNow(msg){ if (DEMO) { showToast('Modo demonstração — sem planilha conectada'); return; } flushQueue(); poll(true).then(() => { if (msg) showToast('🔄 Sincronizado com a planilha'); }); }
+function syncNow(msg){ if (DEMO) { showToast('Modo demonstração — sem banco conectado'); return; } flushQueue(); poll(true).then(() => { if (msg) showToast('🔄 Sincronizado com o banco'); }); }
+function startRealtimeSync(){
+  if (DEMO) return;
+  firebaseReady.then(({db,ref,onValue,runTransaction}) => {
+    const activeRef = ref(db, `${DB_ROOT}/activeDate`);
+    onValue(activeRef, snap => {
+      const rawDate = snap.val();
+      if (!rawDate) {
+        runTransaction(activeRef, current => current || todayLocal()).catch(e => { console.warn('Inicialização do Firebase falhou:', e); setStatus('off'); });
+        return;
+      }
+      const date = dbDate(rawDate);
+      if (date === _subscribedDate) return;
+      _subscribedDate = date;
+      if (_dayUnsub) _dayUnsub();
+      const dayRef = ref(db, dbDayPath(date));
+      _dayUnsub = onValue(dayRef, snapDay => {
+        if (_subscribedDate !== date) return;
+        if (!snapDay.exists()) { readDbDay(date).catch(e => { console.warn('Inicialização do dia falhou:', e); setStatus('off'); }); return; }
+        const record = snapDay.val() || emptyDayRecord();
+        applyRemote({ok:true, version:Number(record.version) || 0, date, data:record.data || emptyDayData()}, _sending);
+        setStatus('ok');
+      }, e => { console.warn('Listener do Firebase falhou:', e); setStatus('off'); });
+    }, e => { console.warn('Listener de data do Firebase falhou:', e); setStatus('off'); });
+  }).catch(e => { console.warn('Firebase indisponível:', e); setStatus('off'); });
+}
 function applyRemote(r, fromOwnPost){
-  if (r.version !== undefined && r.version < VERSION) return;
+  if (r.date === SERVER_DATE && r.version !== undefined && r.version < VERSION) return;
   VERSION = r.version || 0; SERVER_DATE = r.date || '';
   const newS = r.data || {};
   SHIFTS.forEach(sh => { if (!newS[sh]) newS[sh] = mkShift(sh); normShift(newS[sh], sh); });
@@ -1068,7 +1280,6 @@ function applyRemote(r, fromOwnPost){
 }
 function isEditing(){ const a = document.activeElement; return !!(a && a.closest && a.closest('.pane') && /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)); }
 document.addEventListener('focusout', () => setTimeout(() => { if (_dirty && !isEditing()) { _dirty = false; smartRenderAll(); } }, 60));
-setInterval(() => poll(false), POLL_MS);
 document.addEventListener('visibilitychange', () => { if (!document.hidden) poll(true); });
 window.addEventListener('online', () => syncNow(false));
 
@@ -1107,11 +1318,11 @@ async function clearShift(sh){
   enqueue({op:'clearShift', shift:sh}); showToast('🧹 Turno ' + sh + ' limpo.');
 }
 async function novoDia(){
-  if (!await askConfirm('Começar um novo dia?', 'Todos os turnos serão zerados. O dia atual vai para a aba HISTORICO da planilha.', true)) return;
+  if (!await askConfirm('Começar um novo dia?', 'Todos os turnos serão zerados. O dia atual ficará guardado no histórico do banco.', true)) return;
   const today = todayLocal();
   SHIFTS.forEach(sh => S[sh] = mkShift(sh));
   document.getElementById('globalDate').value = today;
-  saveLocal(); renderAll(); enqueue({op:'reset', date:today}); showToast('📅 Novo dia — planilha zerada!');
+  saveLocal(); renderAll(); enqueue({op:'reset', date:today}); showToast('📅 Novo dia — banco atualizado!');
 }
 function onDateChange(v){ saveLocal(); enqueue({op:'setDate', date:v}); refreshAll(); }
 
@@ -1124,7 +1335,7 @@ function fit(){
   MOBILE = PV.mobile === true ? true : PV.desktop ? false : innerWidth < 900;
   document.body.classList.toggle('mobile', MOBILE);
   if (MOBILE) { app.style.zoom = ''; ZOOM = 1; return; }
-  ZOOM = PV.zoom || Math.min(innerWidth / 1600, innerHeight / 1000);
+  ZOOM = PV.zoom || Math.min(innerWidth / 1600, innerHeight / 1050);
   app.style.zoom = ZOOM;
   if (PV.offsetX) app.style.marginLeft = (-PV.offsetX) + 'px';
 }
@@ -1329,6 +1540,8 @@ function renderShift(sh){
         <div class="sort-main">
           <div class="tbl-wrap"><table class="stk"><thead><tr><th class="left">Sorting</th>${slots.map((x, k) => x.isBreak ? `<th class="brkth">${brkIcon(sh)} ${x.short}<small>${x.time}</small></th>` : `<th data-b="sth${k}">${x.time}</th>`).join('')}<th class="tot">Total</th></tr></thead><tbody>
           <tr><td class="left">📦 No carrinho</td>${slots.map((x, k) => x.isBreak ? `<td class="brk">—</td>` : `<td><input class="ci${s.sortData[x.i] !== '' && s.sortData[x.i] != null ? ' has' : ''}" type="number" inputmode="numeric" min="0" placeholder="–" data-s="${x.i}" value="${s.sortData[x.i] === '' || s.sortData[x.i] == null ? '' : s.sortData[x.i]}" oninput="cellInput(this,'${sh}','sortData',null,${x.i})" onchange="cellChange(this,'${sh}','sortData',null,${x.i})"></td>`).join('')}<td class="tot" data-b="sT"></td></tr>
+          <tr class="rDiv"><td class="left">🏷 Etiquetado (estações)</td>${slots.map((x, k) => x.isBreak ? `<td class="brk">—</td>` : `<td data-b="se${k}"></td>`).join('')}<td class="tc" data-keep="tc" data-b="seT"></td></tr>
+          <tr class="rDiv"><td class="left">⚖️ Divergência sort × etiq.</td>${slots.map((x, k) => x.isBreak ? `<td class="brk">—</td>` : `<td data-b="sd${k}"></td>`).join('')}<td class="tc" data-keep="tc" data-b="sdT"></td></tr>
           <tr class="rPlan"><td class="left">🎯 Meta/h</td>${slots.map((x, k) => x.isBreak ? `<td class="brk">—</td>` : `<td data-b="sp${k}"></td>`).join('')}<td class="tc" data-keep="tc" data-b="sPT"></td></tr>
           <tr class="rGap"><td class="left">± GAP da hora</td>${slots.map((x, k) => x.isBreak ? `<td class="brk">—</td>` : `<td data-b="sg${k}"></td>`).join('')}<td class="tc" data-keep="tc" data-b="sGT"></td></tr>
           <tr class="rPct"><td class="left">% da hora</td>${slots.map((x, k) => x.isBreak ? `<td class="brk">—</td>` : `<td data-b="spc${k}"></td>`).join('')}<td class="tc" data-keep="tc" data-b="sPcT"></td></tr>
@@ -1409,8 +1622,9 @@ function refreshShift(sh, first){
   // ── Donut sorting ──
   const sp = c.sortPlanTotal > 0;
   setZ(pane, 'sortchip', sp && c.sortTotal > 0 ? `<span class="chip ${pctCls(c.sortPct)}">${fmtPct(c.sortPct)} da meta</span>` : '');
+  const DV = divergence(c);
   setZ(pane, 'donut', ringHTML(sh+':R2', c.sortPct, sp ? pctCls(c.sortPct) : '', `<div style="font-size:21px">${sp ? numSpan(sh+':R2n', c.sortPct, 'pct') : '—'}<small>da meta</small></div>`, 112, 11) +
-    `<div class="dstats"><div>Realizado<b>${fmtN(c.sortTotal)}</b></div><div>Meta<b>${fmtN(c.sortPlanTotal)}</b></div><div>GAP<b class="${sp ? gapCls(c.sortGap) : ''}">${sp ? fmtSig(c.sortGap) : '—'}</b></div><div>Até agora<b class="${sortSt}">${sortSt ? fmtPct(c.sortPctToDate) : '—'}</b></div></div>`);
+    `<div class="dstats"><div>Realizado<b>${fmtN(c.sortTotal)}</b></div><div>Meta<b>${fmtN(c.sortPlanTotal)}</b></div><div>GAP<b class="${sp ? gapCls(c.sortGap) : ''}">${sp ? fmtSig(c.sortGap) : '—'}</b></div><div>Até agora<b class="${sortSt}">${sortSt ? fmtPct(c.sortPctToDate) : '—'}</b></div><div style="grid-column:1/-1">Divergência × estações<b class="${DV.n ? divCls(DV.pct) : ''}">${DV.n ? fmtSig(DV.d) + ' · ' + (DV.pct > 0 ? '+' : '') + fmtPct(DV.pct) : '—'}</b></div></div>`);
 
   // ── Gráfico ──
   updateHourChart(sh, c, first);
@@ -1458,7 +1672,11 @@ function refreshShift(sh, first){
     patch(pane, 'spc'+k, d && plan > 0 ? fmtPct(p) : '<span class="muted">—</span>', d && plan > 0 ? pctCls(p) : '', fl);
     patch(pane, 'sg'+k, d && plan > 0 ? fmtSig(g) : '<span class="muted">—</span>', d && plan > 0 ? gapCls(g) : '', fl);
     patch(pane, 'sc'+k, d ? fmtN(c.cumSort[k]) : '<span class="muted">—</span>', '', fl);
+    patch(pane, 'se'+k, c.hasData[k] ? fmtN(c.allHr[k]) : '<span class="muted">—</span>', 'muted');
+    const dh = DV.hr[k]; patch(pane, 'sd'+k, dh ? `${fmtSig(dh.d)}<small> ${dh.pct != null ? (dh.pct > 0 ? '+' : '') + fmtPct(dh.pct) : ''}</small>` : '<span class="muted">—</span>', dh ? divCls(dh.pct) : '', fl);
   });
+  patch(pane, 'seT', fmtN(c.totalAll), 'muted');
+  patch(pane, 'sdT', DV.n ? `${fmtSig(DV.d)}<small> ${DV.pct != null ? (DV.pct > 0 ? '+' : '') + fmtPct(DV.pct) : ''}</small>` : '', DV.n ? divCls(DV.pct) : '', fl);
   patch(pane, 'sT', fmtN(c.sortTotal), '', fl); patch(pane, 'sPT', fmtN(c.sortPlanTotal)); patch(pane, 'sPcT', sp && c.sortTotal > 0 ? fmtPct(c.sortPct) : '', sp ? pctCls(c.sortPct) : '', fl); patch(pane, 'sGT', sp && c.sortTotal > 0 ? fmtSig(c.sortGap) : '', sp ? gapCls(c.sortGap) : '', fl); patch(pane, 'sCT', '');
 
   // ── HC ──
@@ -1497,9 +1715,9 @@ function refreshShift(sh, first){
   if (activeShift === 'DIA' && !first) scheduleDay();
 }
 
-// ── Ações personalizadas: ficam em S[turno].planCustom e sincronizam pela planilha ──
+// ── Ações personalizadas: ficam em S[turno].planCustom e sincronizam pelo banco ──
 function customPlans(sh){ const arr = Array.isArray(S[sh] && S[sh].planCustom) ? S[sh].planCustom : []; return arr.map(a => ({...a, key:'C:' + sh + ':' + a.id, custom:true, csh:sh})); }
-// estado (feito / combinado) das ações automáticas fica em S[turno].planState → sincroniza pela planilha
+// estado (feito / combinado) das ações automáticas fica em S[turno].planState → sincroniza pelo banco
 const shOfKey = k => String(k).split(':')[0];
 const pState = k => { const sh = shOfKey(k); const st = S[sh] && S[sh].planState; return (st && typeof st === 'object' && st[k]) || null; };
 const isDone = a => a.custom ? !!a.done : (pState(a.key) ? !!pState(a.key).done : !!DONE[a.key]);
@@ -1791,7 +2009,7 @@ async function embeddedFonts(){
   return _fontCss;
 }
 async function nativeCapture(app){
-  const W = 1600, H = 942, SC = 1.5;
+  const W = 1600, H = 992, SC = 1.5;
   const srcs = [document.querySelector('#pane-' + activeShift + ' .screen')];
   const wrap = document.createElement('div');
   srcs.forEach(src => {
@@ -1841,7 +2059,7 @@ async function renderPrint(){
     catch (e1) {
       console.warn('captura nativa falhou, tentando html2canvas', e1);
       await loadH2C();
-      canvas = await html2canvas(document.querySelector('#pane-' + activeShift + ' .screen'), { x:0, y:0, width:1600, height:942, windowWidth:1600, windowHeight:1000, scrollX:0, scrollY:0, scale:1.5, backgroundColor:'#f4f6fb', useCORS:true, logging:false,
+      canvas = await html2canvas(document.querySelector('#pane-' + activeShift + ' .screen'), { x:0, y:0, width:1600, height:992, windowWidth:1600, windowHeight:1050, scrollX:0, scrollY:0, scale:1.5, backgroundColor:'#f4f6fb', useCORS:true, logging:false,
         ignoreElements: el => el.id === 'tip' || el.id === 'toast' || (el.classList && el.classList.contains('modal-bg')) });
     }
   } finally {
@@ -1896,7 +2114,7 @@ function shareWpp(){ window.open('https://wa.me/?text=' + encodeURIComponent('�
 function copyDashUrl(){ navigator.clipboard.writeText(getDashUrl()).then(() => showToast('✅ Link copiado!')); }
 
 // ═══════════════════════════════════════════════════════════════════
-//  DADOS DE DEMONSTRAÇÃO (?demo=1) — não grava na planilha
+//  DADOS DE DEMONSTRAÇÃO (?demo=1) — não grava no banco
 // ═══════════════════════════════════════════════════════════════════
 function demoData(){
   const D = {}; SHIFTS.forEach(sh => D[sh] = mkShift(sh));
@@ -1935,11 +2153,12 @@ function demoData(){
   renderAll(); switchTab(activeShift, true); applyHeat();
   if (PV.scroll) setTimeout(() => window.scrollTo(0, PV.scroll), 1400);
   if (DEMO) { setStatus('demo'); return; }
+  startRealtimeSync();
   try {
     const r = await apiGet(); VERSION = 0; applyRemote(r, true); setStatus('ok');
     const today = todayLocal();
     if (SERVER_DATE && SERVER_DATE < today) {
-      if (await askConfirm('Começar o dia ' + today.split('-').reverse().join('/') + '?', 'Os dados na planilha são de ' + SERVER_DATE.split('-').reverse().join('/') + '. Iniciar o dia zerado? O dia anterior vai para a aba HISTORICO.')) {
+      if (await askConfirm('Começar o dia ' + today.split('-').reverse().join('/') + '?', 'Os dados no banco são de ' + SERVER_DATE.split('-').reverse().join('/') + '. Iniciar o dia zerado? O dia anterior ficará no histórico.')) {
         SHIFTS.forEach(sh => S[sh] = mkShift(sh)); document.getElementById('globalDate').value = today;
         saveLocal(); renderAll(); enqueue({op:'reset', date:today, ifDate:SERVER_DATE});
       }
