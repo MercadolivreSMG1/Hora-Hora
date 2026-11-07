@@ -2249,7 +2249,7 @@ function psCalc(){
   const liveOk = L && L.at && (Date.now() - Date.parse(L.at)) < 6*60000;
   const plan = liveOk && L.plan ? L.plan : B.plan, ok = liveOk && L.ok != null ? L.ok : B.ok;
   const estN = B.est ? B.est.n : 0, camN = B.cam ? B.cam.n : 0;
-  const bqAge = B.ultimo_evento ? Math.round((Date.now() - psKeyDate(B.ultimo_evento.slice(0,13)).getTime())/60000) : null;
+  const ue = /^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2})/.exec(B.ultimo_evento || ''); const bqAge = ue ? Math.round((Date.now() - new Date(+ue[1], +ue[2]-1, +ue[3], +ue[4], +ue[5]).getTime())/60000) : null;
   return { B, L, liveOk, plan, ok, pct: plan > 0 ? ok/plan*100 : 0, estN, camN, hoje, antes, ontemN, velhos, semCk,
     estLive: liveOk ? L.est : null, camLive: liveOk ? L.cam : null, bqAge };
 }
