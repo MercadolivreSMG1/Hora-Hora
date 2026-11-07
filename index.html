@@ -672,6 +672,74 @@ td{transition:background-color .16s}
 @media (prefers-reduced-motion:reduce){
   .hdr::after,.logo,.kpi .sheen{animation:none!important}
 }
+
+/* ═══════════════ PÓS SORTING ═══════════════ */
+.tab.ps{margin-left:2px;border-left:1px solid rgba(255,255,255,.14);border-radius:0 999px 999px 0;padding-left:12px;padding-right:10px}
+.hdr .brand{flex-shrink:0}
+.hdr .tab{padding:0 11px}
+body:not(.mobile) #btn-clear .t{display:none}
+body:not(.mobile) #btn-clear{padding:0 10px}
+.tab.ps.active{border-left-color:transparent;border-radius:999px}
+.board.ps{grid-template-columns:minmax(0,1fr) minmax(0,1.18fr);grid-template-rows:92px minmax(0,1.05fr) minmax(0,1fr);grid-template-areas:"k k" "e o" "h o"}
+.board.ps .kpis{grid-area:k}
+.board.ps .ps-est{grid-area:e;overflow:hidden}
+.board.ps .ps-hist{grid-area:h;overflow:hidden}
+.board.ps .ps-ori{grid-area:o;overflow:hidden}
+.kpi.g5{background:linear-gradient(140deg,#7f1d2d 0%,#d02f42 55%,#ff6b7a 100%);--sh:rgba(208,47,66,.5)}
+.ps-cut{display:inline-flex;align-items:center;gap:4px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px;box-shadow:var(--shadow)}
+.ps-cut span{font-size:11px;color:var(--text-2);font-weight:600;padding:0 6px 0 8px}
+.ps-cut button{border:none;background:transparent;border-radius:999px;height:26px;padding:0 10px;font-size:11.5px;font-weight:700;color:var(--text-2)}
+.ps-cut button.on{background:linear-gradient(135deg,#fff176,#ffe600 55%,#ffd400);color:var(--navy);box-shadow:0 2px 8px rgba(255,214,10,.35)}
+.ps-src{display:inline-flex;align-items:center;gap:6px}
+.ps-src .lv{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,.6);animation:pulse 1.8s infinite}
+.ps-src .lv.off{background:#f97316;animation:none}
+/* bloco hoje × antes */
+.ps-split{display:grid;grid-template-columns:1fr 1fr;gap:10px;flex-shrink:0}
+.ps-big{position:relative;border-radius:14px;padding:12px 14px 11px;overflow:hidden;border:1px solid transparent}
+.ps-big.h{background:linear-gradient(140deg,#fff1f2,#ffe4e6);border-color:#fecdd3}
+.ps-big.a{background:linear-gradient(140deg,#fff7ed,#ffedd5);border-color:#fed7aa}
+.ps-big .l{font-size:12px;font-weight:700;color:var(--text-2);display:flex;align-items:center;gap:6px}
+.ps-big .v{font-size:40px;font-weight:800;letter-spacing:-1.5px;line-height:1.05;margin-top:2px}
+.ps-big.h .v{color:#d02f42}.ps-big.a .v{color:#c2410c}
+.ps-big .s{font-size:11.5px;color:var(--text-2);font-weight:600;margin-top:2px}
+.ps-big .p{position:absolute;right:12px;top:12px;font-size:12px;font-weight:800;border-radius:999px;padding:3px 9px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.ps-big.h .p{color:#d02f42}.ps-big.a .p{color:#c2410c}
+.ps-bar{display:flex;height:10px;border-radius:999px;overflow:hidden;background:var(--line-2);margin:10px 0 2px;flex-shrink:0}
+.ps-bar i{display:block;height:100%;transition:width .9s var(--ease)}
+.ps-mini{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:10px;flex-shrink:0}
+.ps-mini div{background:var(--card-3);border:1px solid var(--line-2);border-radius:10px;padding:7px 10px}
+.ps-mini label{display:block;font-size:10.5px;color:var(--text-3);font-weight:600;white-space:nowrap}
+.ps-mini b{display:block;font-size:18px;font-weight:800;color:var(--navy);letter-spacing:-.4px;margin-top:1px}
+.ps-mini b small{font-size:11px;font-weight:600;color:var(--text-3);margin-left:3px;letter-spacing:0}
+.ps-mini .r b{color:#d02f42}.ps-mini .o b{color:#c2410c}.ps-mini .g b{color:#047857}.ps-mini .v b{color:#6d28d9}
+.ps-sec{font-size:10.5px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.6px;margin:10px 0 0;flex-shrink:0}
+/* origens */
+.ps-ori table td{padding:6px 8px;border-bottom:1px solid var(--line-2);vertical-align:middle}
+.ps-ori table tbody tr:hover td{background:#f7f9ff}
+.ps-ori .on{font-weight:800;color:var(--navy);font-size:13px;white-space:nowrap}
+.ps-ori .on small{display:block;font-size:10px;color:var(--text-3);font-weight:600}
+.ps-ori .nn{font-weight:800;font-size:15px;color:#1d4ed8;text-align:right;white-space:nowrap}
+.ps-trk{height:9px;background:var(--line-2);border-radius:999px;overflow:hidden;min-width:90px}
+.ps-trk i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#3483fa,#6aa5ff);transition:width .9s var(--ease)}
+.ps-car{display:flex;flex-direction:column;gap:2px}
+.ps-car div{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-2);white-space:nowrap}
+.ps-car .cd{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:10.5px;color:var(--text);max-width:210px;overflow:hidden;text-overflow:ellipsis}
+.ps-tot td{font-weight:800;background:#eef3ff!important;color:var(--navy)}
+/* histograma */
+.ps-chart{flex:1;min-height:0;position:relative}
+.ps-chart svg{width:100%;height:100%;display:block}
+.ps-chart .bh{fill:url(#psgH)}.ps-chart .ba{fill:url(#psgA)}
+.ps-chart text{font-size:10px;fill:var(--text-3);font-weight:600}
+.ps-chart .bl{font-size:10px;font-weight:800;fill:var(--text)}
+.ps-empty{display:grid;place-items:center;flex:1;color:var(--text-3);font-weight:600;font-size:13px;text-align:center;padding:20px}
+/* abaixo da dobra */
+.ps-row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.ps-rt td{padding:6px 8px;border-bottom:1px solid var(--line-2)}
+.ps-rt .rn{font-weight:800;color:var(--navy)}
+.ps-stack{display:flex;height:12px;border-radius:999px;overflow:hidden;background:var(--line-2);min-width:120px}
+.ps-stack i{display:block;height:100%}
+body.mobile .ps-split,body.mobile .ps-row2{grid-template-columns:1fr}
+body.mobile .ps-mini{grid-template-columns:repeat(2,minmax(0,1fr))}
 </style>
 </head>
 <body>
@@ -709,6 +777,7 @@ td{transition:background-color .16s}
   <div id="pane-SD" class="pane"></div>
   <div id="pane-CHP" class="pane"></div>
   <div id="pane-DIA" class="pane"></div>
+  <div id="pane-PS" class="pane"></div>
 </div>
 
 <div id="tip"></div>
@@ -1429,7 +1498,8 @@ const kpiHTML = (g, i, icon, lbl, val, chip, sub, ring) => `<div class="card kpi
 // ═══════════════════════════════════════════════════════════════════
 function buildTabs(){
   document.getElementById('tabs').innerHTML = SHIFTS.map(sh => `<button class="tab" data-tab="${sh}" onclick="switchTab('${sh}')" title="${SHIFT_NAME[sh]}">${sh} <span class="tchip" data-tchip="${sh}">—</span></button>`).join('') +
-    `<button class="tab day" data-tab="DIA" onclick="switchTab('DIA')" title="Consolidado dos 4 turnos">DIA <span class="tchip" data-tchip="DIA">—</span></button>`;
+    `<button class="tab day" data-tab="DIA" onclick="switchTab('DIA')" title="Consolidado dos 4 turnos">DIA <span class="tchip" data-tchip="DIA">—</span></button>` +
+    `<button class="tab ps" data-tab="PS" onclick="switchTab('PS')" title="Pós Sorting — pendentes de sorting e pendência por origem">PÓS <span class="tchip" data-tchip="PS">—</span></button>`;
 }
 function updateTabs(){
   const day = calcDay(S, ctxNow());
@@ -1445,7 +1515,8 @@ function switchTab(sh, silent){
   const bc = document.getElementById('btn-clear'); if (bc) { const d = sh === 'DIA'; bc.querySelector('.t').textContent = d ? 'Novo dia' : 'Limpar turno ' + sh; bc.onclick = d ? novoDia : () => clearShift(activeShift); bc.title = d ? 'Zerar todos os turnos e arquivar o dia no HISTORICO' : 'Zerar os lançamentos do turno ' + sh + ' (para todos)'; }
   document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === sh));
   document.querySelectorAll('.pane').forEach(p => p.classList.toggle('active', p.id === 'pane-' + sh));
-  if (sh === 'DIA') renderDay(); else requestAnimationFrame(() => ensureChart(sh));
+  if (bc) bc.style.display = sh === 'PS' ? 'none' : '';
+  if (sh === 'DIA') renderDay(); else if (sh === 'PS') renderPS(true); else requestAnimationFrame(() => ensureChart(sh));
   if (!silent) window.scrollTo({top:0, behavior:'smooth'});
 }
 
@@ -1459,6 +1530,7 @@ function smartRenderAll(){ SHIFTS.forEach(sh => { const p = document.getElementB
 const brkIcon = sh => BREAK_LABEL[sh] === 'JANTAR' ? '🍽' : '☕';
 
 function renderShift(sh){
+  if (sh === 'PS') return renderPS();
   normShift(S[sh], sh);
   const s = S[sh], c = calc(sh), slots = c.slots, n = slots.length;
   const pane = document.getElementById('pane-' + sh);
@@ -1586,6 +1658,7 @@ function renderShift(sh){
 
 // ── atualização de valores (sem reconstruir inputs) ──
 function refreshShift(sh, first){
+  if (sh === 'PS') return renderPS();
   const pane = document.getElementById('pane-' + sh);
   if (!pane || !pane.dataset.built) return renderShift(sh);
   normShift(S[sh], sh);
@@ -1881,6 +1954,7 @@ function updateHourChart(sh, c, first, key){
   } else apply();
 }
 function ensureChart(sh){
+  if (sh === 'PS') return;
   if (!SHIFTS.includes(sh)) return;
   const pane = document.getElementById('pane-' + sh), host = pane && pane.querySelector('[data-chart="hour"]'); if (!host) return;
   const {W, H} = chartSize(host);
@@ -2116,6 +2190,208 @@ function copyDashUrl(){ navigator.clipboard.writeText(getDashUrl()).then(() => s
 // ═══════════════════════════════════════════════════════════════════
 //  DADOS DE DEMONSTRAÇÃO (?demo=1) — não grava no banco
 // ═══════════════════════════════════════════════════════════════════
+
+// ═══════════════════════════════════════════════════════════════════
+//  PÓS SORTING — pendentes de sorting (na estação: recebidos hoje × antes)
+//  e pendência por origem. Dados AGREGADOS gravados pelo Verdi em
+//  horaHora/posSorting/bq (BigQuery, a cada 15 min) e /live (envios, 1 min).
+// ═══════════════════════════════════════════════════════════════════
+let PSD = null, _psBuilt = false;
+const PS_CUTS = [[0,'00:00'],[-6,'18:00 de ontem'],[-4,'20:00'],[-2,'22:00']];
+let PS_CUT = parseInt(lsGet('rha-ps-cut') || '0', 10) || 0;
+function psCutDate(){ const d = new Date(); d.setHours(0,0,0,0); if (PS_CUT < 0) { d.setDate(d.getDate()-1); d.setHours(24 + PS_CUT, 0, 0, 0); } return d; }
+function psKeyDate(k){ const m = /^(\d{4})-(\d{2})-(\d{2}) (\d{2})/.exec(k || ''); return m ? new Date(+m[1], +m[2]-1, +m[3], +m[4]) : null; }
+function setPSCut(v){ PS_CUT = v; lsSet('rha-ps-cut', String(v)); renderPS(); }
+const PS_GRID_DOC = '01M6TCQYTJ6Y0MFHKMQYWHA5CX';   // documento "Pós Sorting SMG1 (AM)" no Grid — dataset "am" = resultado da query (BigQuery)
+const ON_GRID = /(^|\.)grid(-mobile)?\.(adminml|melioffice)\.com$/.test(location.hostname);
+function psFromDoc(d){   // mesma agregação do workflow do Verdi (só números, sem IDs)
+  const isS = rt => /^[A-Z]+\d*_\d+_\d+/i.test(rt || '');
+  const tipo = p => (p.dcls === 'VOL' || p.dcls === 'BK') ? 'vol' : (isS(p.rota) ? 'saca' : 'gm');
+  const est = {n:0, buffer:0, outros:0, vol:0, gm:0, saca:0, inv:0}, cam = {n:0, vol:0, gm:0, saca:0, inv:0}, ck = {}, byO = {}, byR = {}; let sem = 0;
+  (d.pend || []).forEach(p => { const t = tipo(p), R = byR[p.rota] || (byR[p.rota] = {r:p.rota, e:0, c:0, s:0});
+    if (p.cls === 'E') { est.n++; est[p.grp === 'buffer' ? 'buffer' : 'outros']++; est[t]++; if (p.inv_n > 0) est.inv++; const k = p.checkin ? String(p.checkin).slice(0, 13) : 'sem'; ck[k] = (ck[k] || 0) + 1; R.e++; }
+    else if (p.cls === 'C') { cam.n++; cam[t]++; if (p.inv_n > 0) cam.inv++; const o = p.origem || 'SEM ORIGEM'; const O = byO[o] || (byO[o] = {o, n:0, inv:0, rs:{}}); O.n++; if (p.inv_n > 0) O.inv++; O.rs[p.rota] = 1; R.c++; }
+    else { sem++; R.s++; } });
+  const origens = Object.values(byO).map(O => ({o:O.o, n:O.n, inv:O.inv, rotas:Object.keys(O.rs).length})).sort((a, b) => b.n - a.n).slice(0, 30);
+  const oset = new Set(origens.map(x => x.o));
+  const carretas = (d.carretas || []).filter(c => oset.has(c.origem) || [...oset].some(o => String(c.stops || '').includes(o)))
+    .map(c => ({o:c.origem || '', code:c.code || c.travel_id || '', st:c.status || '', eta:c.eta || '', fim:c.fim || '', tr:c.transportadora || '', stops:String(c.stops || '').replace(/[\[\]"]/g, '').replace(/,/g, '-')})).slice(0, 60);
+  const rotas = Object.values(byR).filter(x => x.e + x.c + x.s > 0).sort((a, b) => (b.e + b.c) - (a.e + a.c)).slice(0, 20);
+  return {at:new Date().toISOString(), gerado_em:d.gerado_em, ultimo_evento:d.ultimo_evento, ciclo:d.ciclo, dia:d.dia, plan:d.planejados, ok:d.sorteados,
+    est, cam, sem, estCk:Object.keys(ck).sort().map(k => [k, ck[k]]), origens, carretas, rotas};
+}
+function psLoadGrid(){
+  const get = n => fetch(`/api/v1/documents/${PS_GRID_DOC}/data/${n}/content?t=${Date.now()}`, {cache:'no-store', credentials:'include'}).then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); });
+  const one = r => { let d = r; while (Array.isArray(d)) d = d[0]; if (d && d.rows) d = d.rows[0]; if (d && typeof d.json_doc === 'string') d = JSON.parse(d.json_doc); if (typeof d === 'string') d = JSON.parse(d); return d; };
+  return Promise.all([get('am'), get('live').catch(() => null)]).then(([am, lv]) => {
+    const d = one(am); if (!d || !d.pend) throw new Error('payload vazio');
+    const L = lv ? one(lv) : null;
+    PSD = Object.assign({}, PSD || {}, {bq: psFromDoc(d), src: 'grid'});
+    if (L && L.routes) { const sm = k => L.routes.reduce((a, r) => a + (r[k] || 0), 0); PSD.live = {at:L.at, plan:sm('esperado'), ok:sm('carregado'), est:sm('estacao'), cam:sm('caminho'), nCont:L.nCont}; }
+    updatePSTab(); if (activeShift === 'PS') renderPS();
+  }).catch(e => console.warn('Pós Sorting (Grid):', e));
+}
+function startPSSync(){
+  if (!DEMO && ON_GRID) { psLoadGrid(); setInterval(() => { if (!document.hidden) psLoadGrid(); }, 60000); setInterval(() => { if (!document.hidden && activeShift === 'PS') renderPS(); }, 30000); return; }
+  if (DEMO) { PSD = demoPS(); updatePSTab(); if (activeShift === 'PS') renderPS(true); return; }
+  firebaseReady.then(({db, ref, onValue}) => {
+    onValue(ref(db, `${DB_ROOT}/posSorting`), snap => { PSD = snap.val() || null; updatePSTab(); if (activeShift === 'PS') renderPS(); },
+      e => console.warn('Pós Sorting: leitura falhou', e));
+  }).catch(e => console.warn('Pós Sorting: Firebase indisponível', e));
+  setInterval(() => { if (!document.hidden && activeShift === 'PS') renderPS(); }, 30000);
+}
+function psCalc(){
+  const B = PSD && PSD.bq, L = PSD && PSD.live;
+  if (!B) return null;
+  const cut = psCutDate(), ontem0 = new Date(); ontem0.setHours(0,0,0,0); const ontem = new Date(ontem0); ontem.setDate(ontem.getDate()-1);
+  let hoje = 0, antes = 0, ontemN = 0, velhos = 0, semCk = 0;
+  (B.estCk || []).forEach(([k, n]) => { const d = psKeyDate(k); if (!d) { semCk += n; antes += n; return; } if (d >= cut) hoje += n; else { antes += n; if (d >= ontem) ontemN += n; else velhos += n; } });
+  const liveOk = L && L.at && (Date.now() - Date.parse(L.at)) < 6*60000;
+  const plan = liveOk && L.plan ? L.plan : B.plan, ok = liveOk && L.ok != null ? L.ok : B.ok;
+  const estN = B.est ? B.est.n : 0, camN = B.cam ? B.cam.n : 0;
+  const bqAge = B.ultimo_evento ? Math.round((Date.now() - psKeyDate(B.ultimo_evento.slice(0,13)).getTime())/60000) : null;
+  return { B, L, liveOk, plan, ok, pct: plan > 0 ? ok/plan*100 : 0, estN, camN, hoje, antes, ontemN, velhos, semCk,
+    estLive: liveOk ? L.est : null, camLive: liveOk ? L.cam : null, bqAge };
+}
+function updatePSTab(){
+  const el = document.querySelector('[data-tchip="PS"]'); if (!el) return;
+  const c = psCalc(); if (!c) { el.textContent = '—'; el.className = 'tchip'; return; }
+  el.textContent = fmtN(c.estN); el.className = 'tchip ' + (c.estN > 0 ? 'bad' : 'good');
+}
+const psHM = s => s ? String(s).slice(11, 16) : '—';
+const psDM = s => s ? String(s).slice(8,10) + '/' + String(s).slice(5,7) : '';
+function psCarChip(c){ const m = {in_progress:['em andamento','info'], pending:['pendente','warn'], created:['criada','neutral'], planned:['planejada','neutral'], finished:['chegou','good']}; const x = m[c.st] || [c.st || '—','neutral']; return `<span class="chip ${x[1]}">${x[0]}</span>`; }
+function psCarOrd(c){ const o = {in_progress:0, pending:1, created:2, planned:2, finished:3}; return o[c.st] != null ? o[c.st] : 4; }
+function psHist(c){
+  const rows = (c.B.estCk || []).filter(([k]) => psKeyDate(k)).slice(-36);
+  if (!rows.length) return `<div class="ps-empty">Sem pacotes na estação com check-in registrado 🎉</div>`;
+  const cut = psCutDate(), W = 720, H = 250, pl = 30, pr = 10, pt = 18, pb = 34, n = rows.length, gw = (W-pl-pr)/n, bw = Math.max(6, Math.min(26, gw*.66));
+  const mx = Math.max(1, ...rows.map(r => r[1]));
+  const y = v => pt + (H-pt-pb)*(1 - v/mx);
+  let g = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"><defs>
+    <linearGradient id="psgH" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ff6b7a"/><stop offset="1" stop-color="#d02f42"/></linearGradient>
+    <linearGradient id="psgA" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fdba74"/><stop offset="1" stop-color="#ea580c"/></linearGradient></defs>`;
+  [0, .5, 1].forEach(f => { const yy = y(mx*f); g += `<line x1="${pl}" x2="${W-pr}" y1="${yy}" y2="${yy}" stroke="#edf0f7"/><text x="${pl-5}" y="${yy+3}" text-anchor="end">${Math.round(mx*f)}</text>`; });
+  let cutX = null;
+  rows.forEach(([k, v], i) => { const d = psKeyDate(k), x = pl + gw*i + (gw-bw)/2, hj = d >= cut; if (hj && cutX == null) cutX = pl + gw*i;
+    g += `<rect class="${hj ? 'bh' : 'ba'}" x="${x}" y="${y(v)}" width="${bw}" height="${Math.max(1, y(0)-y(v))}" rx="4"><title>${psDM(k)} ${k.slice(11,13)}h · ${v} pacote(s) · ${hj ? 'recebido hoje' : 'recebido antes'}</title></rect>`;
+    if (v && (n <= 18 || v === mx)) g += `<text class="bl" x="${x+bw/2}" y="${y(v)-4}" text-anchor="middle">${v}</text>`;
+    if (i % Math.ceil(n/12) === 0 || i === n-1) g += `<text x="${x+bw/2}" y="${H-pb+14}" text-anchor="middle">${k.slice(11,13)}h</text>${(i === 0 || k.slice(11,13) === '00') ? `<text x="${x+bw/2}" y="${H-pb+26}" text-anchor="middle" style="font-weight:800;fill:var(--text-2)">${psDM(k)}</text>` : ''}`; });
+  if (cutX != null) g += `<line x1="${cutX}" x2="${cutX}" y1="${pt-8}" y2="${H-pb}" stroke="#1f2558" stroke-dasharray="4 4" stroke-width="1.5"/><text x="${cutX+5}" y="${pt-2}" style="font-weight:800;fill:#1f2558">corte "hoje"</text>`;
+  return `<div class="ps-chart">${g}</svg></div>`;
+}
+function renderPS(first){
+  const pane = document.getElementById('pane-PS'); if (!pane) return;
+  const c = psCalc();
+  const date = document.getElementById('globalDate').value;
+  const nice = date ? new Date(date + 'T12:00:00').toLocaleDateString('pt-BR', {weekday:'long', day:'2-digit', month:'long'}) : '';
+  const cutBtns = `<div class="ps-cut"><span>“Hoje” a partir de</span>${PS_CUTS.map(([v, l]) => `<button class="${PS_CUT === v ? 'on' : ''}" onclick="setPSCut(${v})">${l}</button>`).join('')}</div>`;
+  if (!c) {
+    pane.innerHTML = `<div class="screen"><div class="cfgbar"><div class="cfg-sum" style="margin:0;font-size:13px"><span>📦 <b>Pós Sorting</b></span><span>aguardando a primeira carga do Verdi…</span></div></div>
+      <div class="board"><div class="card" style="grid-column:1/-1"><div class="ps-empty">Ainda não há dados de Pós Sorting no banco.<br>${ON_GRID ? 'Lendo o painel Pós Sorting no Grid — verifique se você tem acesso a ele.' : 'Eles chegam pelo workflow do Verdi a cada 15 minutos (ciclo AM, 19h–13h).'}</div></div></div></div>`;
+    _psBuilt = false; return;
+  }
+  const B = c.B, E = B.est || {}, C = B.cam || {};
+  const src = c.liveOk ? `<span class="ps-src"><span class="lv"></span>ao vivo · envios ${psHM(c.L.at && new Date(c.L.at).toLocaleString('sv-SE'))}</span>` : `<span class="ps-src"><span class="lv off"></span>BigQuery até ${psHM(B.ultimo_evento)}</span>`;
+  const tot = c.hoje + c.antes, pH = tot ? c.hoje/tot*100 : 0;
+  let h = `<div class="screen"><div class="cfgbar">
+    <div class="cfg-sum" style="margin:0;font-size:13px"><span>📅 <b style="text-transform:capitalize">${nice}</b></span><span>Pós Sorting · ciclo <b>${esc(B.ciclo || 'AM')}</b></span>${src}</div>
+    <div class="cfg-sum">${cutBtns}<span>origens/check-in: BigQuery <b>${psHM(B.ultimo_evento)}</b>${c.bqAge != null && c.bqAge > 25 ? ` <span class="chip bad">atraso ${c.bqAge} min</span>` : ''}</span></div>
+  </div><div class="board ps">
+    <div class="kpis">
+      ${kpiHTML('g1', 0, '🗂', 'Processados no ciclo', numSpan('PS:ok', c.ok), `<span class="kchip ${pctCls(c.pct)}">${arrow(c.pct)} ${fmtPct(c.pct)} do roteirizado</span>`, `roteirizado ${fmtN(c.plan)} · faltam ${fmtN(Math.max(0, c.plan - c.ok))}`, kRing('PS:r1', c.pct, numSpan('PS:r1n', c.pct, 'pct0')))}
+      ${kpiHTML('g5', 1, '⚠️', 'Pendentes de sorting · na estação', numSpan('PS:est', c.estN), `<span class="kchip">${fmtN(c.hoje)} hoje · ${fmtN(c.antes)} antes</span>`, `${fmtN(E.buffer || 0)} buffer · ${fmtN(E.outros || 0)} problem solving/outros${c.estLive != null ? ' · ao vivo ' + fmtN(c.estLive) : ''}`)}
+      ${kpiHTML('g2', 2, '🚚', 'Pendência de origem · a caminho', numSpan('PS:cam', c.camN), `<span class="kchip">${fmtN((B.origens || []).length)} origens</span>`, `${fmtN((B.carretas || []).filter(x => x.st !== 'finished').length)} carretas a chegar${c.camLive != null ? ' · ao vivo ' + fmtN(c.camLive) : ''}`)}
+      ${kpiHTML('g4', 3, '🔎', 'Sem checkpoint · inventário', numSpan('PS:sem', B.sem || 0), `<span class="kchip">${fmtN((E.inv || 0) + (C.inv || 0))} com inventário SMG1</span>`, `${fmtN(C.inv || 0)} "a caminho" já lidos no SMG1`)}
+    </div>
+
+    <div class="card ps-est" style="--i:1">
+      <div class="card-h"><div class="card-t"><span class="ic">📦</span>Pendentes de sorting na estação <span class="card-s">· recebidos e ainda sem sorting</span></div><div class="card-a"><span class="chip ${c.estN ? 'bad' : 'good'}">${fmtN(c.estN)} pacotes</span></div></div>
+      <div class="ps-split">
+        <div class="ps-big h"><div class="l">🔴 Recebidos hoje</div><div class="v">${numSpan('PS:h', c.hoje)}</div><div class="s">check-in a partir de ${PS_CUTS.find(x => x[0] === PS_CUT)[1]}</div><span class="p">${fmtPct(pH)}</span></div>
+        <div class="ps-big a"><div class="l">🟠 Recebidos antes</div><div class="v">${numSpan('PS:a', c.antes)}</div><div class="s">${fmtN(c.ontemN)} de ontem · ${fmtN(c.velhos)} de 2+ dias${c.semCk ? ' · ' + fmtN(c.semCk) + ' sem check-in' : ''}</div><span class="p">${fmtPct(tot ? 100 - pH : 0)}</span></div>
+      </div>
+      <div class="ps-bar"><i style="width:${pH}%;background:linear-gradient(90deg,#d02f42,#ff6b7a)"></i><i style="width:${tot ? 100-pH : 0}%;background:linear-gradient(90deg,#ea580c,#fdba74)"></i></div>
+      <div class="ps-sec">Composição</div>
+      <div class="ps-mini">
+        <div class="r"><label>Volumoso</label><b>${fmtN(E.vol || 0)}</b></div>
+        <div><label>GM</label><b>${fmtN(E.gm || 0)}</b></div>
+        <div class="v"><label>Saca</label><b>${fmtN(E.saca || 0)}</b></div>
+        <div class="g"><label>Com inventário</label><b>${fmtN(E.inv || 0)}</b></div>
+        <div class="o"><label>Buffer (aguardando)</label><b>${fmtN(E.buffer || 0)}<small>${fmtPct(c.estN ? (E.buffer || 0)/c.estN*100 : 0)}</small></b></div>
+        <div><label>Problem solving / outros</label><b>${fmtN(E.outros || 0)}</b></div>
+        <div><label>Sem checkpoint</label><b>${fmtN(B.sem || 0)}</b></div>
+        <div><label>A caminho (origem)</label><b style="color:#1d4ed8">${fmtN(c.camN)}</b></div>
+      </div>
+    </div>
+
+    <div class="card ps-hist" style="--i:3">
+      <div class="card-h"><div class="card-t"><span class="ic">🕒</span>Quando chegaram <span class="card-s">· pendentes na estação por hora do check-in</span></div>
+        <div class="card-a"><div class="legend" style="margin:0"><span><i style="background:#d02f42"></i>hoje</span><span><i style="background:#ea580c"></i>antes</span></div></div></div>
+      ${psHist(c)}
+    </div>
+
+    <div class="card ps-ori" style="--i:2">
+      <div class="card-h"><div class="card-t"><span class="ic">📍</span>Pendência por origem <span class="card-s">· pacotes roteirizados ainda a caminho do SMG1</span></div><div class="card-a"><span class="chip info">${fmtN(c.camN)} pacotes</span></div></div>
+      ${psOrigens(c)}
+    </div>
+  </div></div>`;
+
+  // ── abaixo da dobra: rotas + carretas ──
+  const rotas = B.rotas || [];
+  const mxR = Math.max(1, ...rotas.map(r => (r.e || 0) + (r.c || 0) + (r.s || 0)));
+  const cars = (B.carretas || []).slice().sort((a, b) => psCarOrd(a) - psCarOrd(b) || String(a.eta).localeCompare(String(b.eta))).slice(0, 25);
+  const pendO = {}; (B.origens || []).forEach(o => pendO[o.o] = o.n);
+  h += `<div class="below"><div class="below-h">Detalhamento · Pós Sorting</div><div class="ps-row2">
+    <div class="card light"><div class="card-h"><div class="card-t"><span class="ic">🛣</span>Rotas com mais pendência <span class="card-s">· top ${rotas.length}</span></div>
+      <div class="card-a"><div class="legend" style="margin:0"><span><i style="background:#d02f42"></i>na estação</span><span><i style="background:#3483fa"></i>a caminho</span><span><i style="background:#a0a5c0"></i>sem ck</span></div></div></div>
+      <div class="tbl-wrap" style="flex:none"><table class="ps-rt"><thead><tr><th class="left">Rota</th><th>Na estação</th><th>A caminho</th><th>Sem ck</th><th class="left" style="width:40%">Distribuição</th></tr></thead><tbody>
+      ${rotas.map(r => `<tr><td class="left rn">${esc(r.r)}${/^[A-Z]+\d*_\d+_\d+/i.test(r.r) ? ' <span class="chip neutral">saca</span>' : ''}</td><td style="color:#d02f42;font-weight:800">${r.e || ''}</td><td style="color:#1d4ed8;font-weight:800">${r.c || ''}</td><td>${r.s || ''}</td>
+        <td class="left"><div class="ps-stack" style="width:${Math.max(8, ((r.e||0)+(r.c||0)+(r.s||0))/mxR*100)}%"><i style="flex:${r.e||0};background:#d02f42"></i><i style="flex:${r.c||0};background:#3483fa"></i><i style="flex:${r.s||0};background:#a0a5c0"></i></div></td></tr>`).join('') || `<tr><td colspan="5" class="ps-empty">Nenhuma rota com pendência 🎉</td></tr>`}
+      </tbody></table></div></div>
+    <div class="card light"><div class="card-h"><div class="card-t"><span class="ic">🚛</span>Carretas das origens pendentes <span class="card-s">· destino SMG1</span></div></div>
+      <div class="tbl-wrap" style="flex:none"><table class="ps-rt"><thead><tr><th class="left">Carreta</th><th class="left">Trajeto</th><th>Status</th><th>ETA</th><th>Chegada</th><th>Pendentes</th></tr></thead><tbody>
+      ${cars.map(x => { let n = 0; String(x.stops || x.o).split(/[-,\s]+/).forEach(k => { if (k && k !== 'SMG1') n += pendO[k] || 0; });
+        return `<tr><td class="left" style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px">${esc(x.code)}</td><td class="left">${esc(x.stops || x.o)}<div style="font-size:10px;color:var(--text-3)">${esc(x.tr || '')}</div></td><td>${psCarChip(x)}</td><td>${psDM(x.eta)} ${psHM(x.eta)}</td><td>${x.st === 'finished' && x.fim ? psDM(x.fim) + ' ' + psHM(x.fim) : '—'}</td><td style="color:#1d4ed8;font-weight:800">${n ? fmtN(n) : ''}</td></tr>`; }).join('') || `<tr><td colspan="6" class="ps-empty">Sem carretas na janela</td></tr>`}
+      </tbody></table></div></div>
+  </div></div>`;
+
+  pane.innerHTML = h;
+  animateNums(pane, first || !_psBuilt); _psBuilt = true;
+  updatePSTab();
+}
+function psOrigens(c){
+  const O = c.B.origens || []; if (!O.length) return `<div class="ps-empty">Nenhuma pendência de origem 🎉</div>`;
+  const tot = O.reduce((a, o) => a + o.n, 0), mx = Math.max(1, ...O.map(o => o.n));
+  const cars = c.B.carretas || [];
+  const rows = O.slice(0, 16).map((o, i) => {
+    const cs = cars.filter(x => x.o === o.o || String(x.stops || '').split(/[-,\s]+/).includes(o.o)).sort((a, b) => psCarOrd(a) - psCarOrd(b) || String(a.eta).localeCompare(String(b.eta)));
+    const nx = cs.filter(x => x.st !== 'finished').slice(0, 2), last = cs.filter(x => x.st === 'finished').slice(-1);
+    const show = nx.length ? nx : last;
+    const car = show.length ? `<div class="ps-car">${show.map(x => `<div>${psCarChip(x)}<span class="cd" title="${esc(x.code)}">${esc(x.code)}</span><span>${x.st === 'finished' ? 'chegou ' + psHM(x.fim) : 'ETA ' + psDM(x.eta) + ' ' + psHM(x.eta)}</span></div>`).join('')}</div>` : `<span class="chip bad">sem carreta na janela</span>`;
+    return `<tr><td class="left on">${esc(o.o)}<small>${o.rotas} rota${o.rotas > 1 ? 's' : ''}${o.inv ? ' · ' + o.inv + ' c/ inventário' : ''}</small></td><td class="nn">${fmtN(o.n)}</td>
+      <td><div style="display:flex;align-items:center;gap:8px"><div class="ps-trk" style="flex:1"><i style="width:${Math.max(2, o.n/mx*100)}%"></i></div><span style="font-size:11px;font-weight:700;color:var(--text-2);width:44px;text-align:right">${fmtPct(tot ? o.n/tot*100 : 0)}</span></div></td>
+      <td class="left">${car}</td></tr>`;
+  }).join('');
+  const rest = O.slice(16), restN = rest.reduce((a, o) => a + o.n, 0);
+  return `<div class="tbl-wrap"><table><thead><tr><th class="left">Origem</th><th>Pacotes</th><th class="left">% do pendente</th><th class="left">Próxima carreta → SMG1</th></tr></thead><tbody>${rows}
+    ${rest.length ? `<tr><td class="left" style="color:var(--text-2);font-weight:600">+ ${rest.length} origens</td><td class="nn" style="color:var(--text-2)">${fmtN(restN)}</td><td colspan="2"></td></tr>` : ''}
+    <tr class="ps-tot"><td class="left">Total geral</td><td style="text-align:right">${fmtN(tot)}</td><td colspan="2"></td></tr></tbody></table></div>`;
+}
+function demoPS(){
+  const t = new Date(), p = x => String(x).padStart(2, '0');
+  const k = (dd, hh) => { const d = new Date(t); d.setDate(d.getDate() - dd); return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} ${p(hh)}`; };
+  const ck = []; [[2,14,6],[2,20,9],[1,8,14],[1,13,22],[1,18,31],[1,20,26],[1,21,35],[1,22,40],[1,23,28],[0,0,18],[0,1,25],[0,2,19],[0,3,12],[0,4,22],[0,5,14]].forEach(([d,h,n]) => ck.push([k(d,h), n]));
+  const tsk = (dd, hh, mm) => k(dd, hh) + ':' + p(mm || 0);
+  return { bq: { at: t.toISOString(), gerado_em: tsk(0, t.getHours(), 0), ultimo_evento: tsk(0, Math.max(0, t.getHours()), 0), ciclo: 'AM1', dia: k(0,0).slice(0,10), plan: 28577, ok: 26628,
+    est: { n: 341, buffer: 51, outros: 290, vol: 38, gm: 211, saca: 92, inv: 64 }, cam: { n: 1556, vol: 120, gm: 1100, saca: 336, inv: 208 }, sem: 23, estCk: ck,
+    origens: [{o:'BRPR01',n:1350,rotas:338,inv:180},{o:'BRXSP17',n:116,rotas:90,inv:12},{o:'BRSP04',n:28,rotas:12,inv:6},{o:'BRSP02',n:22,rotas:18,inv:4},{o:'BRXSP14',n:9,rotas:8,inv:0},{o:'BRXSP18',n:8,rotas:7,inv:2},{o:'BRRJ02',n:8,rotas:6,inv:0},{o:'CAMPINAS',n:6,rotas:4,inv:1},{o:'BRXSP10',n:5,rotas:5,inv:0},{o:'BRMG02',n:4,rotas:3,inv:2}],
+    carretas: [{o:'BRPR01',code:'LH*C175.9*BRPR01-SMG1@XMG1',st:'in_progress',eta:tsk(0,3,0),fim:'',tr:'Axon Transportes',stops:'BRPR01-SMG1'},{o:'BRPR01',code:'BRPR01-SMG1.SOW.VEN',st:'finished',eta:tsk(1,23,0),fim:tsk(0,0,24),tr:'JOMED',stops:'BRPR01-SMG1'},
+      {o:'BRXSP17',code:'BRXSP17-SMG1.SOW.VEN',st:'pending',eta:tsk(0,23,0),fim:'',tr:'TRANS KOTHE',stops:'BRXSP17-SMG1'},{o:'BRSP04',code:'BRSP06-BRSP04-SMG1.SOW.VEN',st:'in_progress',eta:tsk(0,12,30),fim:'',tr:'GAS TRANSPORTES',stops:'BRSP06-BRSP04-SMG1'},{o:'BRSP02',code:'BRSP02-SMG1.SOW.VEN',st:'finished',eta:tsk(0,4,0),fim:tsk(0,4,12),tr:'DV3',stops:'BRSP02-SMG1'}],
+    rotas: [{r:'AM1_4_1',e:9,c:31,s:1},{r:'AM1_5_13',e:14,c:12,s:0},{r:'AM1_22',e:3,c:20,s:2},{r:'AM1_75',e:11,c:8,s:0},{r:'AM1_9',e:6,c:10,s:1},{r:'AM1_10_4',e:12,c:2,s:0},{r:'AM1_125',e:2,c:9,s:0}] },
+    live: { at: t.toISOString(), plan: 28577, ok: 26702, est: 330, cam: 1530, nCont: 26 } };
+}
+
 function demoData(){
   const D = {}; SHIFTS.forEach(sh => D[sh] = mkShift(sh));
   let r = 11; const rnd = () => { r = (r*9301 + 49297) % 233280; return r/233280; };
@@ -2149,9 +2425,10 @@ function demoData(){
   SHIFTS.forEach(sh => { if (!S[sh]) S[sh] = mkShift(sh); normShift(S[sh], sh); });
   document.getElementById('globalDate').value = lsGet('rha-date') || todayLocal();
   if (DEMO) { S = demoData(); document.getElementById('globalDate').value = todayLocal(); }
-  activeShift = PV.tab || lsGet('rha-tab') || 'AM'; if (!SHIFTS.includes(activeShift) && activeShift !== 'DIA') activeShift = 'AM';
+  activeShift = PV.tab || lsGet('rha-tab') || 'AM'; if (!SHIFTS.includes(activeShift) && activeShift !== 'DIA' && activeShift !== 'PS') activeShift = 'AM';
   renderAll(); switchTab(activeShift, true); applyHeat();
   if (PV.scroll) setTimeout(() => window.scrollTo(0, PV.scroll), 1400);
+  startPSSync();
   if (DEMO) { setStatus('demo'); return; }
   startRealtimeSync();
   try {
